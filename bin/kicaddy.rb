@@ -1,3 +1,4 @@
+#!/usr/bin/env ruby
 require 'optimist'
 require 'devenv'
 require 'kicaddy'
@@ -5,6 +6,15 @@ require 'fileutils'
 
 OPTS = Optimist::options do
   version "#{$0} 1.0 (c) 2021 by Andreas Schmidt"
+  banner <<-EOS
+With KiCaddy you can easily create KiCad symbols and footprints for matrix boards.
+All you need is a simple text file with the pin names.
+
+Usage:
+       kicaddy [options] <filename>
+
+where [options] are:
+EOS
   opt :spacing, "spacing (mm) of pin columns of footprint", :type => :string
   opt :outdir, "output directory for symbol and footprint file", :type => :string, :default => "/tmp/kicaddy"
   opt :name, "module name", :type => :string, :default => "kicaddy"
