@@ -39,7 +39,8 @@ ofile = File.join(odir, sym_file)
 puts "+ writing symbol to #{ofile}"
 File.open(ofile, 'w') {|f| f.puts symbol.to_s }
 
-footprint = KiCaddy::FootprintEmp.new(OPTS[:name], num_pads: pins.length, spacing: OPTS[:spacing])
+spc = OPTS[:spacing].to_f
+footprint = KiCaddy::FootprintEmp.new(OPTS[:name], num_pads: pins.length, spacing: spc)
 fp_file = "#{OPTS[:name].gsub(/\s+/,'')}.emp"
 ofile = File.join(odir, fp_file)
 puts "+ writing footprint to #{ofile}"

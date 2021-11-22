@@ -35,7 +35,8 @@ EOS
 
       @padding = prefs.fetch(:padding).to_tmils rescue 2.0.to_tmils.to_i
 
-      @spacing = prefs.fetch(:spacing).to_tmils rescue (6 * @pitch)
+      @spacing = prefs.fetch(:spacing).to_tmils.round rescue (6 * @pitch)
+
       @pad_size = 2.28.to_tmils
       @drill_dia = 1.1.to_tmils
       @pads = []
